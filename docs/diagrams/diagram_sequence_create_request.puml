@@ -1,0 +1,40 @@
+@startuml diagram_sequence_create_request
+
+autonumber
+skinparam sequenceMessageAlign center
+skinparam sequenceMessageAlign right
+
+actor Client as clt
+participant DimmingCalendarsController as ctr
+entity DimmingCalendar as dica
+queue MessageBus as mess
+
+clt -> ctr: <<CreateDimmingCalendarWebRequest>>
+activate ctr
+ctr -> dica: <<InitCreateRequest>>
+activate dica
+dica -> dica: Vérification du code de régime
+
+alt Si code en doublon
+
+    dica --> ctr: <<ValidationError>> Code doit être unique
+    ctr --> clt: Status code 400
+
+end
+
+dica -> dica: Vérification de la requête
+
+alt Si requête erronée
+
+    dica -> dica: Ajout des erreurs dans ValidationErrors de l'event
+
+end
+
+dica -> mess: <<DimmingPrograms-DimmingCalendarChangeRequested>>
+deactivate dica
+activate mess
+ctr --> clt: Status code 202
+deactivate mess
+deactivate ctr
+
+@enduml

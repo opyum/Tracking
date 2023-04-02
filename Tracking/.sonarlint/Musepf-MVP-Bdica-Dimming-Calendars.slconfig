@@ -1,0 +1,12 @@
+{
+  "ServerUri": "https://qa-dm-app.citegestion.fr/sonar/",
+  "Organization": null,
+  "ProjectKey": "Musepf-MVP-Bdica-Dimming-Calendars",
+  "ProjectName": "Musepf-MVP-Bdica-Dimming-Calendars",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AWltdcsjy0SuNh0P-v9x",
+      "ProfileTimestamp": "2020-08-24T09:56:59Z"
+    }
+  }
+}

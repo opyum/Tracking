@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+
+  bc-tracking:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+        # api
+      - "6001:80"

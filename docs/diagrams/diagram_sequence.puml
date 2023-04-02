@@ -1,0 +1,19 @@
+@startuml
+
+autonumber
+skinparam sequenceMessageAlign center
+skinparam sequenceMessageAlign right
+
+actor Client
+participant DimmingCalendarsController
+entity DimmingCalendar
+database StoreAdapter
+
+Client -> DimmingCalendarsController: Requête web externe
+DimmingCalendarsController -> DimmingCalendar: <<GetRequest>>
+DimmingCalendar -> StoreAdapter : Lecture du stockage
+DimmingCalendar <-- StoreAdapter: <<DimmingCalendarsState>>
+DimmingCalendarsController <-- DimmingCalendar: <<DimmingCalendar>>
+Client <-- DimmingCalendarsController: <<DimmingCalendarsResponse>>
+
+@enduml

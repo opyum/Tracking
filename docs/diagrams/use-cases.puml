@@ -1,0 +1,21 @@
+@startuml use-cases
+left to right direction
+actor Client
+actor System
+
+rectangle "Régime de fonctionnement" {
+	(Demande de création d'un régime) as (UC2)
+	usecase UC21 as "Emission d'un message
+	DimmingPrograms-DimmingCalendarChangeRequested"
+	(Création d'un régime) as (UC3)
+	usecase UC31 as "Emission d'un message
+	Energy-DimmingCalendarChanged"
+	usecase UC32 as "Emission d'un message
+	Historize-Item-Requested"
+}
+Client --> UC2 : Requête
+UC2 --> UC21
+System --> UC3 : DimmingCalendars-DimmingCalendarChangeRequested
+UC3 --> UC31
+UC3 --> UC32
+@enduml

@@ -1,0 +1,21 @@
+@startuml diagram_activities_create_request
+
+
+:Demande de création d'un régime de fonctionnement;
+
+if(Code en doublon?) then (OUI)
+    #Pink:400
+    Requête erronée;
+    kill
+    else(NON)
+    :Validation des données
+    Ajout des erreurs dans Validation Errors;
+    :Publication Event
+    DimmingPrograms-DimmingCalendarChangeRequested;
+    #palegreen:202
+    Requête acceptée;
+    kill
+kill
+endif
+
+@enduml

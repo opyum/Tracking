@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+    
+  bc-tracking:
+    image: ${DOCKER_REGISTRY-}bc-tracking
+    container_name: BC.Tracking.Service
+    build:
+      context: .
+      dockerfile: src/BC.Tracking.Service/Dockerfile
+    networks: 
+        - backend    
+
+
+networks:
+  backend:
+    external: true
+    name: connexity-backend

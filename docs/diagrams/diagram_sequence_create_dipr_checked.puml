@@ -1,0 +1,46 @@
+@startuml diagram_sequence_create_dipr_checked
+
+autonumber
+skinparam sequenceMessageAlign center
+skinparam sequenceMessageAlign right
+
+queue MessageBus as mess
+participant DimmingCalendarsEventHandlerController as ctr
+entity DimmingCalendar as dica
+database Store as str
+
+mess -> ctr: <<DimmingCalendars-DimmingCalendarChangeRequested>>
+Activate mess
+
+
+Activate ctr
+ctr -> dica: CreateRequest
+Activate dica
+
+dica -> dica: Vérification de la requête
+
+alt Si requête erronée
+
+    dica -> dica: Ajout des erreurs dans ValidationErrors de la requête
+
+end
+
+alt Si aucune erreur
+
+    dica -> str: Enregistrement du régime
+    Activate str
+    str --> dica: Réponse
+    deactivate str
+    dica --> ctr: Réponse
+    deactivate ctr
+    dica -> mess: <<Historize-Item-Requested>>
+    dica -> mess: <<Energy-DimmingCalendarChanged avec EventType CREATED>>
+
+    else Si erreur
+    dica -> mess: <<Energy-DimmingCalendarChanged avec EventType NOTCREATED>>
+    deactivate dica
+    deactivate mess
+
+end
+
+@enduml

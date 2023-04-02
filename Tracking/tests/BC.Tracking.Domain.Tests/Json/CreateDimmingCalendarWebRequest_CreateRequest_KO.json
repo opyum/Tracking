@@ -1,0 +1,181 @@
+﻿[
+  {
+    "code": "Manque Label",
+    "description": "Description du régime",
+    "mode": 0,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "description": "Description du régime",
+    "mode": 0,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Manque mode",
+    "description": "Description du régime",
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Manque DayOfWeek",
+    "description": "Description du régime",
+    "mode": 0,
+    "dimmingProgramsWeekDays": [
+      {
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "DayOfWeek en doublon",
+    "description": "Description du régime",
+    "mode": 0,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "DayOfWeek valeur de 65 non valide",
+    "description": "Description du régime",
+    "mode": 0,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 65,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Mode valeur de 12 non valide",
+    "description": "Description du régime",
+    "mode": 12,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime Test Régime Test Régime Test Régime Test Régime",
+    "code": "Label trop long",
+    "description": "Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Code trop long Code trop long Code trop long Code trop long Code trop long",
+    "description": "Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Description trop longue",
+    "description": "Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Test avec dimmingProgramsWeekDays comptant 2 jours",
+    "description": "Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 2,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  },
+  {
+    "label": "Test Régime",
+    "code": "Test avec dimmingProgramsWeekDays comptant 0 jour",
+    "description": "Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": []
+  }
+]

@@ -1,0 +1,15 @@
+@startuml choregraphy_create
+
+state Energy {
+    state "DimmingCalendars" as DimmingCalendars
+    DimmingCalendars : 1er Passage : Valide les données \n2nd Passage : S'il y a des erreurs: émets l'event Energy-DimmingCalendarChanged avec l'event type NOTCREATED \n Sinon, enregistre le nouveau régime et émets l'event Energy-DimmingCalendarChanged avec l'event type CREATED
+
+    state "DimmingPrograms" as DimmingPrograms
+    DimmingPrograms: Vérifie si les programmes de fonctionnement existent \nVérifie les compatibilités des modes d'opération \nDans le cas contraire ajoute une erreur dans la liste
+}
+
+[*] --> DimmingCalendars : HttpPost
+DimmingCalendars --> DimmingPrograms : message: DimmingPrograms-DimmingCalendarChangeRequested\ntopic: dimmingprograms-dimmingcalendarchangerequested
+DimmingPrograms --> DimmingCalendars : message: DimmingCalendars-DimmingCalendarChangeRequested\ntopic: dimmingcalendars-dimmingcalendarchangerequested
+
+@enduml

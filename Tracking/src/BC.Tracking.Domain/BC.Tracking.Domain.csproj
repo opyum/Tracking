@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Connexity.BC.Tracking.Domain</AssemblyName>
+    <RootNamespace>Connexity.BC.Tracking.Domain</RootNamespace>
+    <CodeAnalysisRuleSet>..\..\.sonarlint\Connexity-BC-Trackingcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Include="..\..\.sonarlint\Connexity-BC-Tracking\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,38 @@
+﻿[
+  {
+    "label": "Test Régime",
+    "code": "Test avec dimmingProgramsWeekDays complet",
+    "description": "Description du régime",
+    "mode": 1,
+    "dimmingProgramsWeekDays": [
+      {
+        "dayOfWeek": 0,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 1,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 2,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 3,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 4,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 5,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      },
+      {
+        "dayOfWeek": 6,
+        "dimmingProgramId": "614051BF-F3A6-4371-ADFC-03F412CBA8B3"
+      }
+    ]
+  }
+]

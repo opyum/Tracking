@@ -1,0 +1,15 @@
+@startuml diagram_activities_get_all
+
+:Récupération d'une  liste de régimes;
+if(Régimes existant ?)then (NON)
+#Pink:204
+Aucun régime;
+kill
+else(oui)
+#palegreen:200
+Régimes récupérés;
+kill
+endif
+
+
+@enduml

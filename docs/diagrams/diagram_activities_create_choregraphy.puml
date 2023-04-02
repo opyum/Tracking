@@ -1,0 +1,24 @@
+@startuml diagram_activities_create_choregraphy
+
+
+:Demande de création d'un régime de fonctionnement;
+
+if(Requête invalide?) then (OUI)
+    #Pink:400
+    Requête erronée;
+    kill
+else(NON)
+    if(Programme inexistant?) then (OUI)
+        #Pink:400
+        Programme inexistant;
+        kill
+    else (NON)
+        #palegreen:201
+        Régime de fonctionnement créé;
+    kill
+    endif
+    kill
+kill
+endif
+
+@enduml

@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "803ed74c-bbff-44a7-85fb-1e4e46f329c3",
+		"name": "1 - Initialisation données",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dapr",
+			"item": [
+				{
+					"name": "Create Calendar Local",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dimmingCalendar = pm.iterationData.toObject();\r",
+									"function getRandomIntInclusive(min, max) {\r",
+									"  min = Math.ceil(min);\r",
+									"  max = Math.floor(max);\r",
+									"  return Math.floor(Math.random() * (max - min +1)) + min;\r",
+									"}\r",
+									"\r",
+									"dimmingCalendar.dimmingProgramsWeekDay.forEach(dimProg => {\r",
+									"    const dimmingPrograms = pm.collectionVariables.get(\"DimmingProgramIds\");\r",
+									"    const parsedDimmingPrograms = JSON.parse(dimmingPrograms);\r",
+									"    const modeFilteredDimmingPrograms = parsedDimmingPrograms.filter((dimmingProgram) => dimmingProgram.mode === dimmingCalendar.mode);\r",
+									"    const randomNumber = getRandomIntInclusive(0, modeFilteredDimmingPrograms.length - 1);\r",
+									"    const randomDimmingProgram = modeFilteredDimmingPrograms[randomNumber];\r",
+									"    dimProg.dimmingProgramId = randomDimmingProgram.dimmingProgramId\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.variables.set(`requestBody`, JSON.stringify(dimmingCalendar));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3501/v1.0/invoke/bdica-dimming-calendars/method/api/v1/dimming-calendars/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3501",
+							"path": [
+								"v1.0",
+								"invoke",
+								"bdica-dimming-calendars",
+								"method",
+								"api",
+								"v1",
+								"dimming-calendars",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Program Local",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(`requestBody`, JSON.stringify(pm.iterationData.toObject()));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const dimmingPrograms = pm.collectionVariables.get(\"DimmingProgramIds\");\r",
+									"let parsedDimmingPrograms = JSON.parse(dimmingPrograms);\r",
+									"if (parsedDimmingPrograms.length === 30) {\r",
+									"    parsedDimmingPrograms = [];\r",
+									"}\r",
+									"parsedDimmingPrograms.push({dimmingProgramId: response.dimmingProgramId, mode: response.mode === \"MidnightMidnight\" ? 0 : 1});\r",
+									"pm.collectionVariables.set(\"DimmingProgramIds\", JSON.stringify(parsedDimmingPrograms));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestBody}}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3502/v1.0/invoke/bdipr-dimming-programs/method/api/v1/dimming-programs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3502",
+							"path": [
+								"v1.0",
+								"invoke",
+								"bdipr-dimming-programs",
+								"method",
+								"api",
+								"v1",
+								"dimming-programs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "K8S",
+			"item": [
+				{
+					"name": "Create Calendar",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const dimmingCalendar = pm.iterationData.toObject();\r",
+									"function getRandomIntInclusive(min, max) {\r",
+									"  min = Math.ceil(min);\r",
+									"  max = Math.floor(max);\r",
+									"  return Math.floor(Math.random() * (max - min +1)) + min;\r",
+									"}\r",
+									"\r",
+									"dimmingCalendar.dimmingProgramsWeekDay.forEach(dimProg => {\r",
+									"    const dimmingPrograms = pm.collectionVariables.get(\"DimmingProgramIds\");\r",
+									"    const parsedDimmingPrograms = JSON.parse(dimmingPrograms);\r",
+									"    const modeFilteredDimmingPrograms = parsedDimmingPrograms.filter((dimmingProgram) => dimmingProgram.mode === dimmingCalendar.mode);\r",
+									"    const randomNumber = getRandomIntInclusive(0, modeFilteredDimmingPrograms.length - 1);\r",
+									"    const randomDimmingProgram = modeFilteredDimmingPrograms[randomNumber];\r",
+									"    dimProg.dimmingProgramId = randomDimmingProgram.dimmingProgramId\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.variables.set(`requestBody`, JSON.stringify(dimmingCalendar));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PodPortForwardUrl}}/v1.0/publish/pubsub1/dimmingcalendars-dimmingcalendarchangerequested",
+							"host": [
+								"{{PodPortForwardUrl}}"
+							],
+							"path": [
+								"v1.0",
+								"publish",
+								"pubsub1",
+								"dimmingcalendars-dimmingcalendarchangerequested"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(`requestBody`, JSON.stringify(pm.iterationData.toObject()));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const dimmingPrograms = pm.collectionVariables.get(\"DimmingProgramIds\");\r",
+									"let parsedDimmingPrograms = JSON.parse(dimmingPrograms);\r",
+									"if (parsedDimmingPrograms.length === 30) {\r",
+									"    parsedDimmingPrograms = [];\r",
+									"}\r",
+									"parsedDimmingPrograms.push({dimmingProgramId: response.dimmingProgramId, mode: response.mode === \"MidnightMidnight\" ? 0 : 1});\r",
+									"pm.collectionVariables.set(\"DimmingProgramIds\", JSON.stringify(parsedDimmingPrograms));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestBody}}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{K8SBaseUrl}}/mvp-dev/pf/ctg/energy/dimming-programs/",
+							"host": [
+								"{{K8SBaseUrl}}"
+							],
+							"path": [
+								"mvp-dev",
+								"pf",
+								"ctg",
+								"energy",
+								"dimming-programs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "K8SBaseUrl",
+			"value": "https://ctg-poc-npd.francecentral.cloudapp.azure.com",
+			"type": "string"
+		},
+		{
+			"key": "PodPortForwardUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "DimmingProgramIds",
+			"value": "[]",
+			"type": "string"
+		}
+	]
+}

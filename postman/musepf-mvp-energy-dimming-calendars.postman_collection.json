@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "915c98cb-a35d-4bf8-847f-d65a3006ee9e",
+		"name": "µ1 musepf-mvp-energy-dimming-calendars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dapr",
+			"item": [
+				{
+					"name": "/ one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DaprBaseUrl}}/api{{ServiceBaseRoute}}{{dimcal_id}}",
+							"host": [
+								"{{DaprBaseUrl}}"
+							],
+							"path": [
+								"api{{ServiceBaseRoute}}{{dimcal_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label\": \"Test Régime\",\r\n    \"code\": \"1234\",\r\n    \"description\": \"Description du régime\",\r\n    \"mode\": 0,\r\n    \"dimmingProgramsWeekDay\": [\r\n        {\r\n            \"dayOfWeek\": 0,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 1,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 2,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 3,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 4,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 5,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 6,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 7,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DaprBaseUrl}}/api{{ServiceBaseRoute}}",
+							"host": [
+								"{{DaprBaseUrl}}"
+							],
+							"path": [
+								"api{{ServiceBaseRoute}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "K8S-{env}",
+			"item": [
+				{
+					"name": "Get One Dim Cal by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"dimcal_id\", \"d57384fe-8345-4cd4-9987-a0b1de04c58d\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{K8SBaseUrl}}/mvp-{{Environment}}/pf/ctg/energy{{ServiceBaseRoute}}{{dimcal_id}}",
+							"host": [
+								"{{K8SBaseUrl}}"
+							],
+							"path": [
+								"mvp-{{Environment}}",
+								"pf",
+								"ctg",
+								"energy{{ServiceBaseRoute}}{{dimcal_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label\": \"Test Régime\",\r\n    \"code\": \"1234\",\r\n    \"description\": \"Description du régime\",\r\n    \"mode\": 0,\r\n    \"dimmingProgramsWeekDay\": [\r\n        {\r\n            \"dayOfWeek\": 0,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 1,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 2,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 3,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 4,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 5,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 6,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": 7,\r\n            \"dimmingProgramId\": \"870ca9d9-0064-4bbf-9c43-a5335b95fc3a\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{K8SBaseUrl}}/mvp-{{Environment}}/pf/ctg/energy{{ServiceBaseRoute}}",
+							"host": [
+								"{{K8SBaseUrl}}"
+							],
+							"path": [
+								"mvp-{{Environment}}",
+								"pf",
+								"ctg",
+								"energy{{ServiceBaseRoute}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{AccessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const echoPostRequest = {",
+					"    url: pm.collectionVariables.get('TokenUri'),",
+					"    method: 'POST',",
+					"    header: 'Content-Type:application/x-www-form-urlencoded',",
+					"    body: {",
+					"        mode: 'urlencoded',",
+					"        urlencoded: [",
+					"            {key: 'grant_type', value: 'password'},",
+					"            {key: 'username', value: pm.collectionVariables.get('AuthUser')},",
+					"            {key: 'password', value: pm.collectionVariables.get('AuthPassword')},",
+					"            {key: 'scope', value: pm.collectionVariables.get('Scope')},",
+					"            {key: 'client_id', value: pm.collectionVariables.get('ClientId')}",
+					"        ],",
+					"    },",
+					"};",
+					"",
+					"pm.sendRequest(echoPostRequest, function (err, res) {",
+					"    if(err) {",
+					"        console.error(err);",
+					"    }",
+					"    else if (err === null) {",
+					"        //saving the token",
+					"        var responseJson = res.json();",
+					"        pm.collectionVariables.set('AccessToken', responseJson.access_token)",
+					"    }",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DaprBaseUrl",
+			"value": "http://localhost:3501/v1.0/invoke/bdica-dimming-calendars/method"
+		},
+		{
+			"key": "Environment",
+			"value": "dev",
+			"type": "default"
+		},
+		{
+			"key": "K8SBaseUrl",
+			"value": "https://ctg-poc-npd.francecentral.cloudapp.azure.com",
+			"type": "default"
+		},
+		{
+			"key": "TokenUri",
+			"value": "https://login.microsoftonline.com/dd8caff8-8bb2-4cb3-a719-ffb7245a199c/oauth2/v2.0/token",
+			"type": "default"
+		},
+		{
+			"key": "AuthUser",
+			"value": "musepfadmin@ctgmusepfint.onmicrosoft.com",
+			"type": "default"
+		},
+		{
+			"key": "AuthPassword",
+			"value": "SuperTchou9!",
+			"type": "default"
+		},
+		{
+			"key": "Scope",
+			"value": "api://9976b96f-e860-4964-beed-b40d81bd1a11/BFFAPI",
+			"type": "default"
+		},
+		{
+			"key": "ClientId",
+			"value": "47f9e4fc-42eb-4133-8c51-ebb4ce62f3a0",
+			"type": "default"
+		},
+		{
+			"key": "AccessToken",
+			"value": ""
+		},
+		{
+			"key": "dimcal_id",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "ServiceBaseRoute",
+			"value": "/v1/dimming-calendars/",
+			"type": "default"
+		}
+	]
+}

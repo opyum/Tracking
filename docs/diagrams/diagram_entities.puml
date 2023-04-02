@@ -1,0 +1,27 @@
+@startuml domain_entities
+
+skinparam linetype ortho
+
+object DimmingCalendar
+DimmingCalendar : Id: Guid
+DimmingCalendar : Code: String
+DimmingCalendar : Label: String
+DimmingCalendar : Description: String
+DimmingCalendar : Mode: Enum
+DimmingCalendar : DimmingProgramsWeekDay : DimmingProgramWeekDay[]
+DimmingCalendar : DimmingProgramsExceptionDay : DimmingProgramExceptionDay[]
+
+object DimmingProgramWeekDay
+DimmingProgramWeekDay : DayOfWeek: Enum
+DimmingProgramWeekDay : DimmingProgramId: Guid
+
+object DimmingProgramExceptionDay
+DimmingProgramExceptionDay : StartDate: DateOnly
+DimmingProgramExceptionDay : EndDate: DateOnly
+DimmingProgramExceptionDay : DimmingProgramId: Guid
+DimmingProgramExceptionDay : ExceptionType: Enum
+
+DimmingCalendar ||..|{ DimmingProgramWeekDay
+DimmingCalendar ||..|{ DimmingProgramExceptionDay
+
+@enduml
